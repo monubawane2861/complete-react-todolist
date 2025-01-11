@@ -1,0 +1,150 @@
+.login-cont {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  height: 100vh;
+  background-color: #f9f9f9;
+  box-sizing: border-box;
+}
+
+.login-img {
+  display: none; 
+  margin-bottom: 20px;
+}
+
+.login-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.login-form {
+  max-width: 300px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+}
+
+.heading2 {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+input.form-control {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input.form-control:focus {
+  border-color: #bc36f1ce;
+  box-shadow: 0 0 5px rgba(168, 31, 0, 0.3);
+}
+
+button.btn {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  color: white;
+  background-color: #bc36f1ce;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button.btn:hover {
+  background-color: #c66bebce;
+  color: white;
+}
+
+.mylogin {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.mylogin a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.mylogin a:hover {
+  text-decoration: underline;
+}
+
+
+@media (min-width: 768px) {
+  
+  .login-cont {
+    width: 100%;
+  }
+  .login-form {
+    width: 100%;
+    max-width: 450px;
+}
+
+}
+
+@media (min-width: 1024px) {
+  .login-cont {
+      flex-direction: row;
+      align-items: center;
+      padding: 40px;
+  }
+
+  .login-img {
+      display: block;
+      width: 40%;
+      margin-right: 20px;
+  }
+
+  .login-form {
+      width: 50%;
+      max-width: 450px;
+  }
+
+  .heading2 {
+      font-size: 2rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .login-cont {
+      width: 100%;
+      padding: 100px;
+      justify-content: space-around;
+  }
+
+  .login-img {
+      width: 45%;
+      max-width: 500px;
+  }
+
+  .login-form {
+      width: 40%;
+      max-width: 500px;
+  }
+
+  .heading2 {
+      font-size: 2.25rem;
+  }
+}

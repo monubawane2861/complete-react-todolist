@@ -1,0 +1,14 @@
+.todo-app{
+  width: 100%;
+  display: flex;
+}
+.sidebar-cont{
+  width: 25%;
+}
+.main-cont{
+  width: 75%;
+}
+.filters{
+  display: flex;
+  flex-direction: column;
+}
