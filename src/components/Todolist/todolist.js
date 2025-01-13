@@ -13,6 +13,7 @@ import { FaBars } from "react-icons/fa";
 import { CiBookmarkRemove } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
 import { IoArrowBack } from "react-icons/io5";
+import { signOut } from "firebase/auth";
 
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
@@ -29,6 +30,18 @@ const TodoList = () => {
   const [selectedDate, setSelectedDate] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const unLogin = onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        navigate("/");
+      }
+    });
+
+    return () => unLogin();
+  }, [navigate]);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -177,9 +190,17 @@ const TodoList = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
-  const navigate = useNavigate();
   const onBackBtn = () => {
     navigate(-1);
+  };
+  const onLogoutTodo = async () => {
+    try {
+      await signOut(auth);
+
+      navigate("/");
+    } catch (error) {
+      alert("error");
+    }
   };
   return (
     <div className="lap-view">
@@ -262,6 +283,11 @@ const TodoList = () => {
               <option value="Priority 3">Priority 3</option>
               <option value="Priority 4">Priority 4</option>
             </select>
+          </div>
+          <div>
+            <button onClick={onLogoutTodo} className="btn btn-danger">
+              Log Out
+            </button>
           </div>
         </div>
         <div className="main-cont">

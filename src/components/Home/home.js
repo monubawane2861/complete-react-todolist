@@ -1,35 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import "./home.css";
-import { onAuthStateChanged, signOut } from "firebase/auth";
-import { auth } from "../../firebase";
-import { useEffect } from "react";
+
 import { GrLinkNext } from "react-icons/gr";
 
 const Home = () => {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const unLogin = onAuthStateChanged(auth, (user) => {
-      if (!user) {
-        navigate("/");
-      }
-    });
-
-    return () => unLogin();
-  }, [navigate]);
-
   const onGetStartedToDo = () => {
     navigate("/todolist");
-  };
-
-  const onLogoutTodo = async () => {
-    try {
-      await signOut(auth);
-
-      navigate("/");
-    } catch (error) {
-      alert("error");
-    }
   };
 
   return (
@@ -40,19 +18,15 @@ const Home = () => {
         </h2>
         <h4>Simple tool to organize everything</h4> <br />
         <p>
-          Add your daily tasks in a powerful tool that helps you organize and
-          prioritize your tasks.
+          One of the most important reasons you should use a to do list is that
+          it will help you stay organised. When you write all your tasks in a
+          list, they seem more manageable.
         </p>
         <div className="two-btn">
           <div>
             <button onClick={onGetStartedToDo} className="startbtn mr-2">
               Get Started
               <GrLinkNext className="ml-2" />
-            </button>
-          </div>
-          <div>
-            <button onClick={onLogoutTodo} className="btn btn-danger">
-              Log Out
             </button>
           </div>
         </div>
