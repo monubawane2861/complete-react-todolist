@@ -14,7 +14,7 @@ const Home = () => {
     <div className="home-main-cont">
       <div className="lower-cont">
         <h2>
-          Build Your <span>To-Do List</span>
+          <span>To-Do List</span>
         </h2>
         <h4>Simple tool to organize everything</h4> <br />
         <p>
